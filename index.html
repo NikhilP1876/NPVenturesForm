@@ -21,17 +21,18 @@
         <img src="https://www.npventures.io/logo.png" alt="NP Ventures">
       </div>
 
-      <h1>Contact NP Ventures</h1>
       <p class="subtitle">
         Tell us a little about yourself and we’ll be in touch shortly.
       </p>
 
       <!-- Salesforce Web-to-Lead Form -->
-      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dao00001QPLOd"
-            method="POST">
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dao00001QPLOd" method="POST">
 
-        <input type="hidden" name="oid" value="00Dao00001QPLOd">
-        <input type="hidden" name="retURL" value="https://www.npventures.io/">
+        <input type="hidden" name="debug" value="1">
+        <input type="hidden" name="debugEmail" value="kishan@npventures.io">
+
+        <input type=hidden name="oid" value="00Dao00001QPLOd">
+        <input type=hidden name="retURL" value="https://www.npventures.io/">
 
         <div class="row">
           <div>
@@ -51,6 +52,17 @@
         </div>
 
         <div>
+          <label for="website">Website</label>
+          <input
+            id="website"
+            name="Website"
+            type="url"
+            placeholder="https://example.com"
+            required
+          >
+        </div>
+
+        <div>
           <label for="company">Company</label>
           <input id="company" name="company" type="text" maxlength="40">
         </div>
@@ -67,26 +79,11 @@
           </div>
         </div>
 
-        <div>
-          <label for="country_code">Country</label>
-          <select id="country_code" name="country_code">
-            <option value="">-- Select Country --</option>
-            <option value="US">United States</option>
-            <option value="IN">India</option>
-            <option value="GB">United Kingdom</option>
-            <option value="CA">Canada</option>
-          </select>
-        </div>
+        <!-- Hidden Country (default = United States) -->
+        <input type="hidden" name="country_code" value="US">
 
-        <div>
-          <label for="lead_source">Lead Source</label>
-          <select id="lead_source" name="lead_source">
-            <option value="">-- Select --</option>
-            <option value="Web">Web</option>
-            <option value="Work Dinner">Work Dinner</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+        <!-- Hidden Lead Source (default = Work Dinner) -->
+        <input type="hidden" name="lead_source" value="Work Dinner">
 
         <button type="submit" class="submit-btn">
           Submit
