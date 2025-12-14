@@ -12,6 +12,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+  const websiteInput = document.getElementById('website');
+
+  websiteInput.addEventListener('blur', () => {
+    const value = websiteInput.value.trim();
+
+    if (value && !value.startsWith('http://') && !value.startsWith('https://')) {
+      websiteInput.value = 'https://' + value;
+    }
+  });
+</script>
+
 <body>
 
   <div class="container">
@@ -28,11 +40,15 @@
       <!-- Salesforce Web-to-Lead Form -->
       <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dao00001QPLOd" method="POST">
 
-        <input type="hidden" name="debug" value="1">
-        <input type="hidden" name="debugEmail" value="kishan@npventures.io">
+        <!-- <input type="hidden" name="debug" value="1">
+        <input type="hidden" name="debugEmail" value="kishan@npventures.io"> -->
 
         <input type=hidden name="oid" value="00Dao00001QPLOd">
-        <input type=hidden name="retURL" value="https://www.npventures.io/">
+        <input
+          type="hidden"
+          name="retURL"
+          value="https://nikhilp1876.github.io/NPVenturesForm/thank-you.html"
+        >
 
         <div class="row">
           <div>
@@ -87,8 +103,8 @@
           <input
             id="website"
             name="Website"
-            type="url"
-            placeholder="https://example.com"
+            type="text"
+            placeholder="example.com"
             required
           >
         </div>
